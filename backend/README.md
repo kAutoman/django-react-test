@@ -33,39 +33,6 @@ Endpoint |HTTP Method | CRUD Method | Result
 `movies/:id` | PUT | UPDATE | Update a movie
 `movies/:id` | DELETE | DELETE | Delete a movie
 
-## Use
-We can test the API using [curl](https://curl.haxx.se/) or [httpie](https://github.com/jakubroztocil/httpie#installation), or we can use [Postman](https://www.postman.com/)
-
-Httpie is a user-friendly http client that's written in Python. Let's try and install that.
-
-You can install httpie using pip:
-```
-pip install httpie
-```
-
-First, we have to start up Django's development server.
-```
-python manage.py runserver
-```
-Only authenticated users can use the API services, for that reason if we try this:
-```
-http  http://127.0.0.1:8000/api/v1/movies/
-```
-we get:
-```
-{
-    "detail": "Authentication credentials were not provided."
-}
-```
-Instead, if we try to access with credentials:
-```
-http http://127.0.0.1:8000/api/v1/movies/3 "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE2MjA4Mjk1LCJqdGkiOiI4NGNhZmMzMmFiZDA0MDQ2YjZhMzFhZjJjMmRiNjUyYyIsInVzZXJfaWQiOjJ9.NJrs-sXnghAwcMsIWyCvE2RuGcQ3Hiu5p3vBmLkHSvM"
-```
-we get the movie with id = 3
-```
-{  "title":  "Avengers",  "genre":  "Superheroes",  "year":  2012,  "creator":  "admin"  }
-```
-
 ## Create users and Tokens
 
 First we need to create a user, so we can log in
